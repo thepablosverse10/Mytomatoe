@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Just a Few Questions 💭</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      background: #faf7f5;
+      padding: 30px;
+      max-width: 800px;
+      margin: auto;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+    }
+    .question {
+      margin-bottom: 25px;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 8px;
+    }
+    textarea {
+      width: 100%;
+      min-height: 100px; /* ~4 lines */
+      padding: 10px;
+      font-family: inherit;
+      font-size: 14px;
+    }
+    button {
+      display: block;
+      margin: 40px auto;
+      padding: 12px 24px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Answer Honestly 😉</h1>
+
+<form id="qaForm">
+
+  <div class="question">
+    <label>1. Be honest... how often do you think about me?</label>
+    <textarea></textarea>
+  </div>
+
+  <div class="question">
+    <label>2. If I was sitting right next to you right now, what would you do first?</label>
+    <textarea></textarea>
+  </div>
+
+  <div class="question">
+    <label>3. What's something you'd never admit... unless I asked you?</label>
+    <textarea></textarea>
+  </div>
+
+  <div class="question">
+    <label>4. When was the last time I crossed your mind today?</label>
+    <textarea></textarea>
+  </div>
+
+  <div class="question">
+    <label>5. Do you smile at your phone when my name pops up?</label>
+    <textarea></textarea>
+  </div>
+
+  <div class="question">
+    <label>6. What's the most distracting thing about me to you?</label>
+    <textarea></textarea>
+  </div>
+
+  <div class="question">
+    <label>7. If I stole a kiss, would you stop me... or kiss me back?</label>
+    <textarea></textarea>
+  </div>
+
+  <div class="question">
+    <label>8. What's the one thing you want to say to me... but haven't yet?</label>
+    <textarea></textarea>
+  </div>
+
+  <div class="question">
+    <label>9. Do you think about me more at night or in the morning?</label>
+    <textarea></textarea>
+  </div>
+
+  <div class="question">
+    <label>10. If I whispered something right now, do you think you'd blush?</label>
+    <textarea></textarea>
+  </div>
+
+</form>
+
+<button onclick="sendEmail()">Send answers to Aira 💌</button>
+
+<script>
+function sendEmail() {
+  const textareas = document.querySelectorAll("textarea");
+  let body = "My answers:\\n\\n";
+
+  textareas.forEach((ta, i) => {
+    body += (i + 1) + ". " + ta.previousElementSibling.innerText + "\\n";
+    body += ta.value + "\\n\\n";
+  });
+
+  const email = "kunjan21098@gmail.com@gmail.com"; // <-- replace with YOUR email
+  const subject = "Just answering your questions 😉";
+
+  window.location.href =
+    "mailto:" + email +
+    "?subject=" + encodeURIComponent(subject) +
+    "&body=" + encodeURIComponent(body);
+}
+</script>
+
+</body>
+</html>
